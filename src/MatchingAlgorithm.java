@@ -10,7 +10,7 @@ public class MatchingAlgorithm {
 		System.out.println("The keyset size is: " + user.getDescendingNavigableMap().keySet().size());
 		System.out.println(user.getDescendingNavigableMap().keySet());
 		Object[] keys = user.getDescendingNavigableMap().keySet().toArray();
-		for (Integer i = 0; i < user.getDescendingNavigableMap().keySet().size(); i++) {
+		for (int i = 0; i < user.getDescendingNavigableMap().keySet().size(); i++) {
 			System.out.println();
 			System.out.println("ITERATION: " + i);
 			NavigableMap<Integer, ArrayList<String>> kvPair = user.getDescendingNavigableMap().subMap(
@@ -25,15 +25,16 @@ public class MatchingAlgorithm {
 						System.out.print("Comparing " + name + " and " + thing);
 						if (name == thing) {
 							System.out.println(" AND THEY MATCH");
-							System.out.println("i = " + i);
-							System.out.println(user.getDescendingNavigableMap().keySet().toArray().length);
+							System.out.println("");
+							//System.out.println("i = " + i);
+							//System.out.println(user.getDescendingNavigableMap().keySet().toArray().length);
 							matchFrequency = matchFrequency
 									+ (Integer) user.getDescendingNavigableMap().keySet().toArray()[i];
-							System.out.println(user.getDescendingNavigableMap().keySet().toArray()[i]);
+							System.out.println("Match frequency at: " + matchFrequency * 100 / totalFrequency + "%");
+							System.out.println("");
 						} else {
 							System.out.println(" AND THEY DON'T MATCH");
 						}
-						System.out.println("Match frequency at: " + matchFrequency * 100 / totalFrequency + "%");
 						if (matchFrequency >= totalFrequency / 3) {
 							System.out.println("We have a match");
 							return;
